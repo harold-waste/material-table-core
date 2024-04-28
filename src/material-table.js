@@ -1238,7 +1238,7 @@ export default class MaterialTable extends React.Component {
                         </div>
                       ) : null}
 
-                      <div>{table}</div>
+                      <div style={{ backgroundColor: 'red' }}>{table}</div>
 
                       {this.state.width &&
                       props.options.fixedColumns &&
