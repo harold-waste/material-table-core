@@ -1147,7 +1147,11 @@ var MaterialTable = /*#__PURE__*/function (_React$Component) {
             transform: "translateX(calc(".concat(_this4.getColumnsWidth(props, -1 * props.options.fixedColumns.right), " - 100%))")
           }
         }, table)) : null, /*#__PURE__*/_react["default"].createElement("div", {
+          onScroll: props.handleScroll,
           style: {
+            display: 'block',
+            height: '500px',
+            overflowY: 'auto',
             backgroundColor: 'red'
           }
         }, table), _this4.state.width && props.options.fixedColumns && props.options.fixedColumns.left ? /*#__PURE__*/_react["default"].createElement("div", {

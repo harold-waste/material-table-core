@@ -725,8 +725,8 @@ export default class MaterialTable extends React.Component {
               typeof error === 'object'
                 ? error.message
                 : error !== undefined
-                ? error
-                : localization.error,
+                  ? error
+                  : localization.error,
             errorCause: 'query'
           };
           this.setState({
@@ -887,9 +887,9 @@ export default class MaterialTable extends React.Component {
       const isOutsidePageNumbers = this.isOutsidePageNumbers(props);
       const currentPage = isOutsidePageNumbers
         ? Math.min(
-            props.page,
-            Math.floor(props.totalCount / this.state.pageSize)
-          )
+          props.page,
+          Math.floor(props.totalCount / this.state.pageSize)
+        )
         : this.state.currentPage;
       const totalCount = isOutsidePageNumbers
         ? props.totalCount
@@ -992,10 +992,10 @@ export default class MaterialTable extends React.Component {
             props.parentChildData
               ? this.state.treefiedDataLength
               : this.state.columns.filter(
-                  (col) => col.tableData.groupOrder > -1
-                ).length > 0
-              ? this.state.groupedDataLength
-              : this.state.data.length
+                (col) => col.tableData.groupOrder > -1
+              ).length > 0
+                ? this.state.groupedDataLength
+                : this.state.data.length
           }
           hasDetailPanel={!!props.detailPanel}
           detailPanelColumnAlignment={props.options.detailPanelColumnAlignment}
@@ -1141,8 +1141,8 @@ export default class MaterialTable extends React.Component {
               selectedRows={
                 this.state.selectedCount > 0
                   ? this.state.originalData.filter((a) => {
-                      return a.tableData.checked;
-                    })
+                    return a.tableData.checked;
+                  })
                   : []
               }
               columns={this.state.columns}
@@ -1236,9 +1236,14 @@ export default class MaterialTable extends React.Component {
                             {table}
                           </div>
                         </div>
-                      ) : null}
+                          ) : null}
 
-                      <div style={{ backgroundColor: 'red' }}>{table}</div>
+                      <div
+                        onScroll={props.handleScroll}
+                        style={{ display: 'block', height: '500px', overflowY: 'auto', backgroundColor: 'red' }}
+                        >
+                        {table}
+                      </div>
 
                       {this.state.width &&
                       props.options.fixedColumns &&
@@ -1271,7 +1276,7 @@ export default class MaterialTable extends React.Component {
                             {table}
                           </div>
                         </div>
-                      ) : null}
+                          ) : null}
                     </div>
                     {provided.placeholder}
                   </div>
@@ -1294,7 +1299,7 @@ export default class MaterialTable extends React.Component {
                   <LinearProgress />
                 </div>
               </div>
-            )}
+          )}
           {props.options.paginationPosition === 'bottom' ||
           props.options.paginationPosition === 'both'
             ? this.renderFooter()
@@ -1314,7 +1319,7 @@ export default class MaterialTable extends React.Component {
               >
                 <props.components.OverlayLoading theme={props.theme} />
               </div>
-            )}
+          )}
           {this.state.errorState &&
             this.state.errorState.errorCause === 'query' && (
               <div
@@ -1334,7 +1339,7 @@ export default class MaterialTable extends React.Component {
                   icon={props.icons.Retry}
                 />
               </div>
-            )}
+          )}
         </props.components.Container>
       </DragDropContext>
     );
